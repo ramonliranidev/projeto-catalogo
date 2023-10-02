@@ -1,28 +1,28 @@
-import { ReactElement, useEffect } from "react";
-import { GetServerSidePropsContext, NextApiRequest } from "next";
-import { Controller, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { z } from "zod";
 import { get } from "lodash";
+import { GetServerSidePropsContext, NextApiRequest } from "next";
+import { ReactElement, useEffect } from "react";
+import { Controller, useForm } from "react-hook-form";
+import { z } from "zod";
 
-import { requireAuthentication } from "@/helpers/require-authentication";
-import { encryptJSON } from "@/helpers/encrypt-json";
-import { decryptJSON } from "@/helpers/decrypt-json";
 import { createOrUpdate } from "@/helpers/create-or-update";
+import { decryptJSON } from "@/helpers/decrypt-json";
+import { encryptJSON } from "@/helpers/encrypt-json";
 import { getById } from "@/helpers/get-by-id";
+import { requireAuthentication } from "@/helpers/require-authentication";
 import { NextPageWithLayout } from "@/interfaces/NextPageWithLayout";
-import { User } from "@/interfaces/User";
 import { Role } from "@/interfaces/Role";
+import { User } from "@/interfaces/User";
 
-import { Layout } from "@/components/system/layout";
-import { Input } from "@/components/shared/input";
-import { Toggle } from "@/components/shared/switch";
-import { Button } from "@/components/shared/button";
-import { PageTitle } from "@/components/shared/page-title";
 import { Autocomplete } from "@/components/shared/autocomplete";
+import { Button } from "@/components/shared/button";
+import { Input } from "@/components/shared/input";
+import { InputCpfCnpj } from "@/components/shared/input-cpf-cnpj";
+import { PageTitle } from "@/components/shared/page-title";
+import { Toggle } from "@/components/shared/switch";
+import { Layout } from "@/components/system/layout";
 import { getHeaders } from "@/helpers/get-headers";
 import fetchJson from "@/lib/fetch-json";
-import { InputCpfCnpj } from "@/components/shared/input-cpf-cnpj";
 
 const schema = z
   .object({

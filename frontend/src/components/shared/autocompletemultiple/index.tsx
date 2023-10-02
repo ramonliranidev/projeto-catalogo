@@ -1,6 +1,6 @@
-import { Fragment, InputHTMLAttributes, useState } from "react";
 import { Combobox, Transition } from "@headlessui/react";
 import { CheckIcon, ChevronUpDownIcon } from "@heroicons/react/20/solid";
+import { Fragment, InputHTMLAttributes, useState } from "react";
 
 import { Control, Controller, FieldError } from "react-hook-form";
 
@@ -25,10 +25,6 @@ export default function AutocompleteMultiple({
   name,
   error,
 }: AutocompleteMultipleProps) {
-  const [selectedOptions, setSelectedOptions] = useState([
-    options[0],
-    options[1],
-  ]);
   const [query, setQuery] = useState("");
 
   const filteredPeople =
@@ -56,8 +52,8 @@ export default function AutocompleteMultiple({
         control={control}
         render={({ field: { onChange, ref, value } }) => (
           <Combobox
-            value={selectedOptions}
-            onChange={setSelectedOptions}
+            value={options.find((option) => option.id === value) || options[0]}
+            onChange={(item) => onChange(item.id)}
             multiple
           >
             <div className="relative mt-1 ">
@@ -67,15 +63,8 @@ export default function AutocompleteMultiple({
               >
                 <Combobox.Input
                   className="block w-full rounded-md border-0 text-gray-700 border-gray-300 h-12 py-3 pl-3 pr-10 text-sm leading-6 ring-gray-300 ring-1 focus:ring-tomilho-600"
-                  displayValue={(options: any) =>
-                    options
-                      .map((subcategory: any) => subcategory?.name)
-                      .filter(Boolean)
-                      .join(
-                        options.some((subcategory: any) => subcategory?.name)
-                          ? ", "
-                          : ""
-                      )
+                  displayValue={(people: any) =>
+                    people.map((person: any) => person.name).join(", ")
                   }
                 />
                 <Combobox.Button className="absolute inset-y-0 right-0 flex items-center pr-2">

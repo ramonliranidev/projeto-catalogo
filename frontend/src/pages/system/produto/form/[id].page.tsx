@@ -1,31 +1,31 @@
-import { ReactElement, useEffect, useState } from "react";
-import { GetServerSidePropsContext, NextApiRequest } from "next";
-import { Controller, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { z } from "zod";
 import { get } from "lodash";
+import { GetServerSidePropsContext, NextApiRequest } from "next";
+import { ReactElement, useEffect, useState } from "react";
+import { Controller, useForm } from "react-hook-form";
+import { z } from "zod";
 
-import { requireAuthentication } from "@/helpers/require-authentication";
-import { encryptJSON } from "@/helpers/encrypt-json";
-import { decryptJSON } from "@/helpers/decrypt-json";
 import { createOrUpdate } from "@/helpers/create-or-update";
+import { decryptJSON } from "@/helpers/decrypt-json";
+import { encryptJSON } from "@/helpers/encrypt-json";
 import { getById } from "@/helpers/get-by-id";
+import { requireAuthentication } from "@/helpers/require-authentication";
 import { NextPageWithLayout } from "@/interfaces/NextPageWithLayout";
 
-import { Layout } from "@/components/system/layout";
 import { Input } from "@/components/shared/input";
+import { Layout } from "@/components/system/layout";
 
-import { Button } from "@/components/shared/button";
-import { PageTitle } from "@/components/shared/page-title";
-import { InputDecimal } from "@/components/shared/input-decimal";
 import { Autocomplete } from "@/components/shared/autocomplete";
 import AutocompleteMultiple from "@/components/shared/autocompletemultiple";
-import { getHeaders } from "@/helpers/get-headers";
-import fetchJson from "@/lib/fetch-json";
-import { ProductCategory } from "@/interfaces/ProductCategory";
-import { TextArea } from "@/components/shared/textarea";
-import { Product } from "@/interfaces/Product";
+import { Button } from "@/components/shared/button";
+import { InputDecimal } from "@/components/shared/input-decimal";
+import { PageTitle } from "@/components/shared/page-title";
 import { Toggle } from "@/components/shared/switch";
+import { TextArea } from "@/components/shared/textarea";
+import { getHeaders } from "@/helpers/get-headers";
+import { Product } from "@/interfaces/Product";
+import { ProductCategory } from "@/interfaces/ProductCategory";
+import fetchJson from "@/lib/fetch-json";
 
 const schema = z.object({
   name: z.string().nonempty({ message: "Nome é obrigatório" }),
@@ -99,7 +99,6 @@ const Page: NextPageWithLayout<PageProps> = (props: PageProps) => {
         setSubcategories(response.subcategories);
       } catch (error) {}
     }
-
     getSubcategories();
   }, [watch("productCategoryId")]);
 
@@ -178,10 +177,10 @@ const Page: NextPageWithLayout<PageProps> = (props: PageProps) => {
             <div className="col-span-3 sm:col-span-3 flex items-center justify-between ">
               <AutocompleteMultiple
                 control={control}
+                name="subcategoryId"
                 options={subcategories}
                 isRequired
                 label="Subcategorias"
-                {...register("subcategoryId")} // aqui esta o erro, preciso adicionar no prisma
                 divClasses="w-full"
               />
             </div>
@@ -190,18 +189,10 @@ const Page: NextPageWithLayout<PageProps> = (props: PageProps) => {
                 divClasses="w-full"
                 label="Descrição resumida"
                 isRequired
-                {...register("shortDescription")}
-                error={errors.shortDescription}
               />
             </div>
             <div className="col-span-6 sm:col-span-6 flex items-center justify-between ">
-              <TextArea
-                divClasses="w-full"
-                label="Descrição"
-                isRequired
-                {...register("description")}
-                error={errors.description}
-              />
+              <TextArea divClasses="w-full" label="Descrição" isRequired />
             </div>
             <div className="col-span-full flex items-center justify-between">
               <p className="text-red-500 text-sm font-bold">
