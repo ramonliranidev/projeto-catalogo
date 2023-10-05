@@ -189,10 +189,18 @@ const Page: NextPageWithLayout<PageProps> = (props: PageProps) => {
                 divClasses="w-full"
                 label="Descrição resumida"
                 isRequired
+                {...register("shortDescription")}
+                error={errors.shortDescription}
               />
             </div>
             <div className="col-span-6 sm:col-span-6 flex items-center justify-between ">
-              <TextArea divClasses="w-full" label="Descrição" isRequired />
+              <TextArea
+                divClasses="w-full"
+                label="Descrição"
+                isRequired
+                {...register("description")}
+                error={errors.description}
+              />
             </div>
             <div className="col-span-full flex items-center justify-between">
               <p className="text-red-500 text-sm font-bold">
