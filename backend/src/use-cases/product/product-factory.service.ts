@@ -15,10 +15,11 @@ export class ProductFactoryService
     newProduct.price = createProductDto.price;
     newProduct.shortDescription = createProductDto.shortDescription;
     newProduct.description = createProductDto.description;
+    newProduct.productCategoryId = createProductDto.productCategoryId;
 
     newProduct.active = get(createProductDto, 'active', true);
 
-    return omit(newProduct, 'products');
+    return newProduct;
   }
 
   update(updateProductDto: UpdateProductDto) {
