@@ -99,6 +99,7 @@ const Page: NextPageWithLayout<PageProps> = (props: PageProps) => {
         setSubcategories(response.subcategories);
       } catch (error) {}
     }
+
     getSubcategories();
   }, [watch("productCategoryId")]);
 
@@ -177,10 +178,10 @@ const Page: NextPageWithLayout<PageProps> = (props: PageProps) => {
             <div className="col-span-3 sm:col-span-3 flex items-center justify-between ">
               <AutocompleteMultiple
                 control={control}
-                name="subcategoryId"
                 options={subcategories}
                 isRequired
                 label="Subcategorias"
+                {...register("subcategoryId")} // aqui esta o erro
                 divClasses="w-full"
               />
             </div>
