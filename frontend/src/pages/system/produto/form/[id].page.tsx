@@ -19,6 +19,7 @@ import { Autocomplete } from "@/components/shared/autocomplete";
 import AutocompleteMultiple from "@/components/shared/autocompletemultiple";
 import { Button } from "@/components/shared/button";
 import { InputDecimal } from "@/components/shared/input-decimal";
+import { InputFileImage } from "@/components/shared/input-file-image";
 import { PageTitle } from "@/components/shared/page-title";
 import { Toggle } from "@/components/shared/switch";
 import { TextArea } from "@/components/shared/textarea";
