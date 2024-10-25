@@ -1,6 +1,6 @@
-import { z } from 'zod';
 import dotenv from 'dotenv';
 import path from 'path';
+import { z } from 'zod';
 
 const ENV = process.env.NODE_ENV;
 

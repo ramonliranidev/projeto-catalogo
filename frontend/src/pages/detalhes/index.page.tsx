@@ -17,7 +17,7 @@ import { ProductCategory } from "@/interfaces/ProductCategory";
 const products = [
   {
     id: 1,
-    name: "Convite de luxo",
+    name: "NaN",
     href: "#",
     price: "R$ 256",
     description:
@@ -30,7 +30,7 @@ const products = [
   },
   {
     id: 2,
-    name: "Convite clássico",
+    name: "NaN",
     href: "#",
     price: "R$ 32",
     description:
@@ -42,7 +42,7 @@ const products = [
   },
   {
     id: 3,
-    name: "Convite de luxo",
+    name: "NaN",
     href: "#",
     price: "R$ 256",
     description:
@@ -55,7 +55,7 @@ const products = [
   },
   {
     id: 4,
-    name: "Convite clássico",
+    name: "NaN",
     href: "#",
     price: "R$ 42",
     description:

@@ -10,26 +10,26 @@ interface CreateOrUpdateProps {
   toastMessage?: string | null;
 }
 
-function fileToBase64(file: File): Promise<string> {
-  return new Promise<string>((resolve, reject) => {
-    const reader = new FileReader();
+// function fileToBase64(file: File): Promise<string> {
+//   return new Promise<string>((resolve, reject) => {
+//     const reader = new FileReader();
 
-    reader.onloadend = () => {
-      if (reader.readyState === FileReader.DONE) {
-        const base64String = reader.result as string;
-        resolve(base64String);
-      } else {
-        reject(new Error("Error reading file"));
-      }
-    };
+//     reader.onloadend = () => {
+//       if (reader.readyState === FileReader.DONE) {
+//         const base64String = reader.result as string;
+//         resolve(base64String);
+//       } else {
+//         reject(new Error("Error reading file"));
+//       }
+//     };
 
-    reader.onerror = () => {
-      reject(new Error("Error reading file"));
-    };
+//     reader.onerror = () => {
+//       reject(new Error("Error reading file"));
+//     };
 
-    reader.readAsDataURL(file);
-  });
-}
+//     reader.readAsDataURL(file);
+//   });
+// }
 
 export async function createOrUpdate({
   currentEntity,

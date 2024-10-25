@@ -43,7 +43,7 @@ const navigation = {
       sections: [
         {
           id: "typesInvitation",
-          name: "Tipos de Convites",
+          name: "blabla",
           items: [
             { name: "Clássico", href: "#" },
             { name: "Moderno", href: "#" },
@@ -485,7 +485,7 @@ export function FlyoutMenu({ product, launches }: FlyoutMenuProps) {
                             <div key={section.name}>
                               <p
                                 id={`${category.id}-${section.id}-heading-mobile`}
-                                className="font-medium text-gray-900"
+                                className="font-normal text-gray-900"
                               >
                                 {section.name}
                               </p>

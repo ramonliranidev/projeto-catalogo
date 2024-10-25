@@ -23,7 +23,7 @@ const products = [
     inStock: true,
     size: "M",
     imageSrc: imagem1,
-    imageAlt: "Convite rosa",
+    imageAlt: "Shorts básico",
   },
   {
     id: 2,
@@ -35,7 +35,7 @@ const products = [
     leadTime: "3–4 semanas",
     size: "P",
     imageSrc: imagem2,
-    imageAlt: "Convite bege",
+    imageAlt: "Cropped básico",
   },
   {
     id: 3,
@@ -46,7 +46,7 @@ const products = [
     size: "M",
     inStock: true,
     imageSrc: imagem3,
-    imageAlt: "Convite verde",
+    imageAlt: "Camisa básica",
   },
 ];
 

@@ -7,6 +7,7 @@ import { ButtonWhatsApp } from "@/components/shared/button-whatsapp";
 
 const robotoCondensed = localFont({
   src: "../../../assets/fonts/RobotoCondensed-VariableFont_wght.ttf",
+  // src: "../../../assets/fonts/JetBrains/JetBrainsMonoNL-Regular.ttf",
 });
 
 interface LayoutProps {
