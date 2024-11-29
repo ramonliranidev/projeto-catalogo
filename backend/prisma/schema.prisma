@@ -17,6 +17,24 @@ model EmailVerification {
   @@map("email_verifications")
 }
 
+model Cart {
+  id        String     @id @default(uuid())
+  userId    String
+  items     CartItem[]
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+
+  user      User       @relation(fields: [userId], references: [id])
+}
+
+model CartItem {
+  id        String @id @default(uuid())
+  cartId    String
+  productId String
+  quantity  Int
+  cart      Cart   @relation(fields: [cartId], references: [id])
+}
+
 model FaqCategory {
   id   String @id @default(uuid())
   name String
@@ -215,6 +233,7 @@ model User {
 
   roleId String @map("role_id")
   role   Role   @relation(fields: [roleId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fk_user_has_role1")
+  Cart   Cart[]
 
   @@index([roleId], map: "fk_user_has_roles1_idx")
   @@map("users")

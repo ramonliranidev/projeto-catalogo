@@ -1,11 +1,10 @@
-import { SubCategoryUseCases } from './../../../use-cases/sub-category/subcategory.use-case';
-import { Response } from 'express';
-import { Body, Controller, Delete, Get, Param, Post, Res } from '@nestjs/common';
-import { CreateProductDto } from '@core/dtos/product.dto';
-import { ProductUseCases } from '@use-cases/product/product.use-case';
-import { PaginationOptionsDto } from '@core/dtos/pagination-options.dto';
 import { Public } from '@auth-decorators/public.decorator';
+import { PaginationOptionsDto } from '@core/dtos/pagination-options.dto';
+import { CreateProductDto } from '@core/dtos/product.dto';
+import { Body, Controller, Delete, Get, Param, Post, Res } from '@nestjs/common';
 import { ProductCategoryUseCases } from '@use-cases/product-category/product-category.use-case';
+import { ProductUseCases } from '@use-cases/product/product.use-case';
+import { Response } from 'express';
 
 @Controller('products')
 export class ProductController {
